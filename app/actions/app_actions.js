@@ -2,9 +2,9 @@
 
 var Reflux = require('reflux');
  
-var AppActions = Reflux.createActions([
+var Actions = Reflux.createActions([
   'firstAction',
   'secondAction'
 ]);
  
-module.exports = AppActions;
+module.exports = Actions;
