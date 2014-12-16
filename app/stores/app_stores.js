@@ -4,8 +4,9 @@ var Actions = require('../actions/app_actions.js');
 
 var Store = Reflux.createStore({
     listenables: Actions,
-    onFirstAction: function(){
+    onFirstAction: function(date){
       console.log('triggered first action');
+      if(date) console.log('got date parameter value: '+ date);
       this.trigger();
     },
     onSecondAction: function(){
