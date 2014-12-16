@@ -22,7 +22,7 @@ var Place = React.createClass({
     this.setState({});
   },
   onClick: function(){
-    Actions.firstAction()
+    Actions.firstAction(this.refs.date.getDOMNode().innerText);
   },
   render: function () {
     var place = findPlace(this.getParams().id);
@@ -35,7 +35,7 @@ var Place = React.createClass({
         <div className="place">
           <h2>{ place.name }</h2>
           <img src={ '/images/' + place.id + '.jpg' }/>
-          <p onClick={this.onClick}>The date is now: {date}</p>
+          <p>The date is now: <time onClick={this.onClick} ref="date">{date}</time></p>
         </div>
       </DocumentTitle>
     );
