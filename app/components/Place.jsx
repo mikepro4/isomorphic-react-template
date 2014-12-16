@@ -18,24 +18,30 @@ function findPlace(id) {
 
 var Place = React.createClass({
   mixins: [ Reflux.listenTo(Store, "onStoreChange"), Router.State ],
+  getInitialState: function(){
+    return {
+      clicks: 0
+    }
+  },
   onStoreChange: function(){
-    this.setState({});
+    this.setState({
+      clicks: this.state.clicks+1
+    });
   },
   onClick: function(){
-    Actions.firstAction(this.refs.date.getDOMNode().innerText);
+    Actions.firstAction(this.refs.clickCount.getDOMNode().innerText);
   },
   render: function () {
     var place = findPlace(this.getParams().id);
-    var date = new Date().toISOString();
 
     if (!place) return <NotFound />;
 
     return (
       <DocumentTitle title={ place.name }>
-        <div className="place">
+        <div className="place" onClick={this.onClick}>
           <h2>{ place.name }</h2>
           <img src={ '/images/' + place.id + '.jpg' }/>
-          <p>The date is now: <time onClick={this.onClick} ref="date">{date}</time></p>
+          <p>You clicked <b ref="clickCount">{this.state.clicks}</b> times</p>
         </div>
       </DocumentTitle>
     );
