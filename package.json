@@ -8,7 +8,7 @@
   "main": "server.js",
   "scripts": {
     "start-dev": "./scripts/dev",
-    "start":"./scripts/prod"
+    "start": "./scripts/prod"
   },
   "dependencies": {
     "body-parser": "^1.9.2",
@@ -19,7 +19,8 @@
     "node-jsx": "^0.12.4",
     "react": "^0.12.1",
     "react-document-title": "^0.1.3",
-    "react-router": "^0.11.4"
+    "react-router": "^0.11.4",
+    "reflux": "^0.2.1"
   },
   "devDependencies": {
     "css-loader": "^0.9.0",
