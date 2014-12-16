@@ -16,6 +16,30 @@ function findPlace(id) {
   }
 }
 
+// use traditional events to set state on the UI. 
+var ExampleInput = React.createClass({
+  getInitialState: function(){
+    return {
+      value: this.props.initialInput
+    }
+  },
+  keyUp: function(e){
+    this.setState({
+      value: e.target.value
+    });
+  },
+  render: function(){
+    return (
+      <div>
+        <p>You typed: '{this.state.value}'</p>
+        <input type="text" onKeyUp={this.keyUp} defaultValue={this.state.value} />
+      </div>
+    )
+  }
+});
+
+// use reflux to trigger actions which will in return trigger stores and stores will trigger views for updates. The update is the UI change in click
+
 var Place = React.createClass({
   mixins: [ Reflux.listenTo(Store, "onStoreChange"), Router.State ],
   getInitialState: function(){
@@ -38,10 +62,11 @@ var Place = React.createClass({
 
     return (
       <DocumentTitle title={ place.name }>
-        <div className="place" onClick={this.onClick}>
+        <div className="place">
           <h2>{ place.name }</h2>
           <img src={ '/images/' + place.id + '.jpg' }/>
-          <p>You clicked <b ref="clickCount">{this.state.clicks}</b> times</p>
+          <p>You clicked <button type="button" onClick={this.onClick}> this </button> <b ref="clickCount">{this.state.clicks}</b> times</p>
+          <ExampleInput initialInput='...' />
         </div>
       </DocumentTitle>
     );
