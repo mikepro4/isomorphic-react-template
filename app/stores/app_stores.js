@@ -52,6 +52,15 @@ var Store = Reflux.createStore({
       this.trigger(activeItem);
     },
     getItem: function(id){
+      if(typeof(window) == 'undefined'){
+        this.requestItemData()
+      }else{
+        var self = this;
+        this.requestItemData(function(){
+          self.saveState();
+        });
+      }
+
       for(var i = 0; i < items.length; i++){
         if(items[i].id == id){
           activeItem = items[i];
@@ -59,9 +68,16 @@ var Store = Reflux.createStore({
         }
       }
     },
+    requestItemData: function(callback){
+      console.log('returning data');
+      if(callback) callback();
+    },
+    saveState: function(){
+      console.log('saving state')
+    },
     getItems: function(){
       return items;
     }
-});
+  });
 
 module.exports = Store;

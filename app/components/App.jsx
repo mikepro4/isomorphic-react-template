@@ -24,7 +24,7 @@ var App = React.createClass({
     var links = this.props.items.map(function (item) {
       return (
         <li key={"item-" + item.id}>
-          <Link to="item" params={{ id: item.id }} onClick={self.onClick.bind(null, item.id)} activeClassName="active">{item.id}</Link>
+          <Link to="item" params={{ id: item.id }} onClick={self.onClick.bind(null, item.id)}>{item.id}</Link>
         </li>
       );
     });

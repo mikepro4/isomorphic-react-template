@@ -14,6 +14,7 @@ var Actions       = require('../actions/app_actions.js');
 var Item = React.createClass({
   mixins: [ Reflux.connect(Store), Router.State ],
   getInitialState: function(){
+    console.log(1);
     var id = this.getParams().id;
 
     return Store.getItem(id);
