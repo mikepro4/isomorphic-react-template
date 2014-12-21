@@ -3,7 +3,9 @@ var Reflux = require('reflux');
 var Actions = require('../actions/app_actions.js');
 var items = [
   {id: 1, title: 'James Pattern', text: 'The night on fire.'}, 
-  {id: 2, title: 'Rose Wellington', text: 'She caught the dust of the wind.'}
+  {id: 2, title: 'Rose Wellington', text: 'She caught the dust of the wind.'},
+  {id: 3, title: 'Path Sayer', text: 'Chapter 3, the night when she disappeared.'},
+  {id: 4, title: 'Avalon', text: '"Howard. Don\'t go," she said.'}
 ];
 
 var activeItem = items[0];

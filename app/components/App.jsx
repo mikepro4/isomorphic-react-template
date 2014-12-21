@@ -9,7 +9,7 @@ var Store         = require('../stores/app_stores.js');
 var Actions = require('../actions/app_actions.js');
 var Link          = Router.Link;
 
-var title = "Some items";
+var title = "Some titles";
 
 var App = React.createClass({
   mixins: [Router.State],

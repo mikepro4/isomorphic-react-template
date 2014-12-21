@@ -3,7 +3,7 @@ var React = require('react');
 
 var Index = React.createClass({
   render: function () {
-    return <p>Please select a place from the left.</p>;
+    return <p>Please select a title from the left.</p>;
   }
 });
 
