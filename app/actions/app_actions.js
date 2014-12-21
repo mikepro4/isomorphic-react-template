@@ -6,8 +6,7 @@ var Actions = Reflux.createActions([
   'createItem',
   'updateItem',
   'removeItem',
-  'getItems',
-  'getItem'
+  'setActiveItem'
 ]);
  
 module.exports = Actions;

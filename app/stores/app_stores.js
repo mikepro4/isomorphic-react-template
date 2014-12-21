@@ -1,39 +1,56 @@
 /* Single actions file - You may split it into more files next time */
 var Reflux = require('reflux');
 var Actions = require('../actions/app_actions.js');
+var items = [
+  {id: 1, title: 'James Pattern', text: 'The night on fire.'}, 
+  {id: 2, title: 'Rose Wellington', text: 'She caught the dust of the wind.'}
+];
+
+var activeItem = items[0];
 
 var Store = Reflux.createStore({
-    items: [],
     listenables: Actions,
     onCreateItem: function(item){
-      this.items.push(item);
+      items.push(item);
       this.trigger();
     },
     onRemoveItem: function(item){
-      for(var i = 0; i < this.items.length; i++){
-        if(this.items[i].id == this.item.id){
-          this.items.splice(i, 1);
+      for(var i = 0; i < items.length; i++){
+        if(items[i].id == item.id){
+          items.splice(i, 1);
           break;
         }
       }
+      this.trigger();
     },
     onUpdateItem: function(item){
-      for(var i = 0; i < this.items.length; i++){
-        if(this.items[i].id == this.item.id){
-          this.items[i] == item;
+      for(var i = 0; i < items.length; i++){
+        if(items[i].id == item.id){
+          items[i] == item;
           break;
         }
       }
+      this.trigger();
     },
-    onGetItem: function(id){
-      for(var i = 0; i < this.items.length; i++){
-        if(this.items[i].id == this.item.id){
-          return this.items[i];
+    onSetActiveItem: function(id){
+      for(var i = 0; i < items.length; i++){
+        if(items[i].id == id){
+          activeItem = items[i];
+          break;
+        }
+      }
+      this.trigger(activeItem);
+    },
+    getItem: function(id){
+      for(var i = 0; i < items.length; i++){
+        if(items[i].id == id){
+          activeItem = items[i];
+          return items[i];
         }
       }
     },
-    onGetItems: function(){
-      return this.items;
+    getItems: function(){
+      return items;
     }
 });
 

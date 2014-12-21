@@ -5,22 +5,26 @@ var Router        = require('react-router');
 var DocumentTitle = require('react-document-title');
 
 var RouteHandler  = Router.RouteHandler;
+var Store         = require('../stores/app_stores.js');
+var Actions = require('../actions/app_actions.js');
 var Link          = Router.Link;
 
-var data  = require('../public/data/places');
-var title = "Some places in Italy";
+var title = "Some items";
 
 var App = React.createClass({
-
+  mixins: [Router.State],
   getDefaultProps: function () {
-    return { places: data };
+    return { items: Store.getItems()};
   },
-
+  onClick: function(id){
+    Actions.setActiveItem(id);
+  },
   render: function () {
-    var links = this.props.places.map(function (place) {
+    var self = this;
+    var links = this.props.items.map(function (item) {
       return (
-        <li key={"place-" + place.id}>
-          <Link to="place" params={{ id: place.id }}>{place.name}</Link>
+        <li key={"item-" + item.id}>
+          <Link to="item" params={{ id: item.id }} onClick={self.onClick.bind(null, item.id)} activeClassName="active">{item.id}</Link>
         </li>
       );
     });
