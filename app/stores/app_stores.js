@@ -9,6 +9,9 @@ var Actions = require('../actions/app_actions.js');
 // These actions sync state between the database and the client state. 
 // On reload, the server should again return to the client a snapshot of the database.
 
+// TODO 
+// Is there a way for the client to take over state from the server and not fire another duplicate XHR request?
+
 var items = [
   {id: 1, title: 'James Pattern', text: 'The night on fire.'}, 
   {id: 2, title: 'Rose Wellington', text: 'She caught the dust of the wind.'},
