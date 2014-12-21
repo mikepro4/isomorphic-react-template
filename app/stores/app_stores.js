@@ -1,6 +1,14 @@
 /* Single actions file - You may split it into more files next time */
 var Reflux = require('reflux');
 var Actions = require('../actions/app_actions.js');
+
+// TODO
+// Database will hold the single source of truth about the app state
+// On the server side, each request should only return a snapshot of this state.
+// Client side will take over over this state, and fire actions. 
+// These actions sync state between the database and the client state. 
+// On reload, the server should again return to the client a snapshot of the database.
+
 var items = [
   {id: 1, title: 'James Pattern', text: 'The night on fire.'}, 
   {id: 2, title: 'Rose Wellington', text: 'She caught the dust of the wind.'},
