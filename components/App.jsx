@@ -5,14 +5,15 @@ var Router = require('react-router');
 var _ = require('underscore');
 var DocumentTitle = require('react-document-title');
 
+var HomePageRouterMixin = require('./../mixins/HomePageRouter.jsx');
+var Header = require('./Header.jsx');
+
 var RouteHandler = Router.RouteHandler;
 var Link= Router.Link;
 
-
-var title = "Some places in Italy";
 var App = React.createClass({
 
-  mixins: [ Router.State, Router.Navigation ],
+  mixins: [ Router.State, Router.Navigation, HomePageRouterMixin ],
 
   getInitialState: function () {
     return {
@@ -24,7 +25,6 @@ var App = React.createClass({
   },
 
   componentDidMount: function () {
-
     if(this.getQuery().market) {
       this.updateLocalStorage({
         market: this.getQuery().market
@@ -32,22 +32,13 @@ var App = React.createClass({
     }
 
     this.showInitialPage();
-    
-    this.setState({
-      user: JSON.parse(localStorage.getItem('user'))
-    })
-
+    this.updateLocalStorage();
   },
 
   showInitialPage: function () {
     var user = JSON.parse(localStorage.getItem('user'));
-   
     if(this.isActive('index') && user) {
-      if (user.mode === "enterprise") {
-        this.transitionTo('enterprise')
-      } else if (user.mode === "exchange") {
-        this.transitionTo('exchange')
-      }
+      this.selectHomePage(user)
     }
   },
 
@@ -70,6 +61,7 @@ var App = React.createClass({
       <DocumentTitle title="CompStak">
         <div className="app">
           <div className="detail">
+            <Header user={this.state.user}/>
             <RouteHandler 
               {...this.props}
               user={this.state.user}

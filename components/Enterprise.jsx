@@ -1,6 +1,7 @@
 'use strict';
 var React = require('react');
 var Router = require('react-router');
+var Link = Router.Link;
 
 var Enterprise = React.createClass({
 
@@ -11,7 +12,18 @@ var Enterprise = React.createClass({
   },
 
   render: function () {
-    return <p>Market:{this.props.user.market} Mode:{this.props.user.mode}   Enterprise</p>;
+    return (
+      <div>
+        <h1>Enterprise</h1>
+        <p>Market: {this.props.user.market}</p> 
+        <p>Mode: {this.props.user.mode}</p>
+
+        <ul>
+          <li><Link to="underwriting">Underwriting</Link></li>
+          <li><Link to="asset-management">Asset Management</Link></li>
+        </ul>
+      </div>
+    )
   }
 });
 

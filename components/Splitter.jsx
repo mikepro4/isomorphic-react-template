@@ -27,9 +27,15 @@ var Enterprise = React.createClass({
   render: function () {
     return (
         <div>
-            {this.props.market}
-            <Link to="exchange" onClick={this.setExchange}>exchange</Link> 
-            <Link to="enterprise" onClick={this.setEnterprise}>enterprise</Link>
+            <h1>Who are you?</h1>
+            <ul>
+              <li><Link to="exchange" onClick={this.setExchange}>Broker</Link></li>
+              <li><Link to="exchange" onClick={this.setExchange}>Appraiser</Link></li>
+              <li><Link to="exchange" onClick={this.setExchange}>Researcher</Link></li>
+              <li><Link to="enterprise" onClick={this.setEnterprise}>Landlord</Link></li>
+              <li><Link to="enterprise" onClick={this.setEnterprise}>Appraiser</Link></li>
+              <li><Link to="enterprise" onClick={this.setEnterprise}>Bank</Link></li>
+            </ul>
         </div>
     );
   }

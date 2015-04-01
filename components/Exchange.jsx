@@ -3,7 +3,13 @@ var React = require('react');
 
 var Exchange = React.createClass({
   render: function () {
-    return <p> {this.props.user.mode} {this.props.user.market} Exchasdfsdfnge</p>;
+    return (
+      <div>
+        <h1>Exchange</h1>
+        <p>Market: {this.props.user.market}</p> 
+        <p>Mode: {this.props.user.mode}</p>
+      </div>
+    )
   }
 });
 
