@@ -13,6 +13,7 @@ var Place    = require('./components/Place.jsx');
 var NotFound = require('./components/NotFound.jsx');
 var Exchange = require('./components/Exchange.jsx');
 var Enterprise = require('./components/Enterprise.jsx');
+var Contacts = require('./components/Contacts.jsx');
 var Splitter = require('./components/Splitter.jsx');
 var UnderWriting = require('./components/Underwriting.jsx');
 var AssetManagement = require('./components/AssetManagement.jsx');
@@ -26,6 +27,8 @@ var routes = (
     <Route name="enterprise" path="enterprise/" handler={Enterprise} />
     <Route name="underwriting" path="enterprise/underwriting/" handler={UnderWriting} />
     <Route name="asset-management" path="enterprise/asset-management/" handler={AssetManagement} />
+
+    <Route name="contacts" path="contacts/" handler={Contacts} />
 
     <Route name="exchange" path="exchange/" handler={Exchange} />
 

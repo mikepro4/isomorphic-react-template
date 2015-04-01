@@ -1,12 +1,12 @@
 'use strict';
 var React = require('react');
 
-var Exchange = React.createClass({
+var Contacts = React.createClass({
   
   render: function () {
     return (
       <div>
-        <h1>Exchange</h1>
+        <h1>Contacts</h1>
         <p>Market: {this.props.user.market}</p> 
         <p>Mode: {this.props.user.mode}</p>
       </div>
@@ -14,4 +14,4 @@ var Exchange = React.createClass({
   }
 });
 
-module.exports = Exchange;
+module.exports = Contacts;

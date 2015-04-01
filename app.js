@@ -10,6 +10,8 @@ var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var cachebuster  = require('./cachebuster');
+var httpProxy    = require("http-proxy");
+var proxy        = new httpProxy.createProxyServer();
 var serverRender = require('./server.jsx');
 
 var app = express();
@@ -34,6 +36,10 @@ if (app.get('env') === 'development') {
     res.redirect('http://localhost:3001/static' + req.path);
   });
 }
+
+app.all('/api/*', function (req, res) {
+  proxy.web(req, res, {target: 'http://local.exchange.compstak.com/'});
+});
 
 // use react routes
 app.use('/', serverRender);
