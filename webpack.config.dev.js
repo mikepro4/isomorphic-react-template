@@ -40,7 +40,7 @@ module.exports = {
         loaders: ['react-hot', 'jsx']
       },
       // Pass stylus files through loaders to generate required css files.
-      { test: /\.styl$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader') }
+      { test: /\.less$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader') }
     ]
   },
   // devtool: "#inline-source-map",

@@ -8,7 +8,7 @@ var routes = require('./routes.jsx');
 // this tells webpack to load styles. 
 // webpack will automatically generate a css bundle and add it to <head> tag
 
-var style = require('./style/main.styl');
+var style = require('./style/main.less');
 
 document.addEventListener("DOMContentLoaded", function(event) {
     Router.run(routes, Router.HistoryLocation, function (Handler, state) {

@@ -42,7 +42,7 @@ module.exports = {
       test: /\.jsx$/, loaders: ['jsx']
     }, 
     // Pass stylus files through loaders to generate required css files.
-      { test: /\.styl$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader') }
+      { test: /\.less$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader') }
     ]
   },
 

@@ -7,8 +7,8 @@
   "license": "MIT",
   "main": "server.js",
   "scripts": {
-    "start-dev": "./scripts/dev",
-    "start": "./scripts/prod"
+    "start": "./scripts/dev",
+    "prod": "./scripts/prod"
   },
   "dependencies": {
     "body-parser": "^1.9.2",
@@ -38,16 +38,13 @@
     "gulp-util": "^3.0.1",
     "jsx-loader": "^0.12.2",
     "livereload": "^0.3.4",
-    "nib": "^1.0.4",
     "node-notifier": "^4.0.2",
-    "node-sass": "^1.2.3",
     "nodemon": "^1.2.1",
     "react-hot-loader": "^0.5.0",
     "style-loader": "^0.8.2",
-    "stylus": "^0.49.3",
-    "stylus-loader": "^0.5.0",
     "watch": "^0.13.0",
     "webpack": "^1.4.13",
-    "webpack-dev-server": "^1.6.6"
+    "webpack-dev-server": "^1.6.6",
+    "underscore": "~1.8.2"
   }
 }
